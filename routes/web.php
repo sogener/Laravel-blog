@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Models\Article;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +27,6 @@ Route::get('/about', function () {
 });
 
 Route::get('/articles', function () {
-    return view('articles');
+    $aResult = new Article();
+    return view('articles', ['allPosts' => $aResult->getAll()->toArray()]);
 });
