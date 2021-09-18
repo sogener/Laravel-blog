@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Models\Article;
+use \App\Http\Controllers as Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/about', function () {
-    $team = [
-        ['name' => 'Hodor', 'position' => 'programmer'],
-        ['name' => 'Joker', 'position' => 'CEO'],
-        ['name' => 'Elvis', 'position' => 'CTO'],
-    ];
-    return view('about', ['ourTeam' => $team]);
+    return view('about', ['ourTeam' => Controllers\PageController::getAboutPage()]);
 });
+Route::get('/rating', [Controllers\RatingController::class, 'index']);
 
 Route::get('/articles', function () {
     $aResult = new Article();
