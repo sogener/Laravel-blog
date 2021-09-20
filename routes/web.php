@@ -22,8 +22,7 @@ Route::get('/about', function () {
     return view('about', ['ourTeam' => Controllers\PageController::getAboutPage()]);
 });
 Route::get('/rating', [Controllers\RatingController::class, 'index']);
-
-Route::get('/articles', function () {
-    $aResult = new Article();
-    return view('articles', ['allPosts' => $aResult->getAll()->toArray()]);
-});
+Route::get('articles', [Controllers\ArticleController::class, 'index'])
+    ->name('articles.index');
+Route::get('articles_categories', [Controllers\ArticleCategoryController::class, 'index'])
+    ->name('articles.categories');
