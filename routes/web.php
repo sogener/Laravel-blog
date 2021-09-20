@@ -26,3 +26,6 @@ Route::get('articles', [Controllers\ArticleController::class, 'index'])
     ->name('articles.index');
 Route::get('articles_categories', [Controllers\ArticleCategoryController::class, 'index'])
     ->name('articles.categories');
+Route::get('articles/{$id}', [Controllers\ArticleController::class, 'show'])
+    ->name('articles.show')
+    ->where('id', '[0-9]+');
