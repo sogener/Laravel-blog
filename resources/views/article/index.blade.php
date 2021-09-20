@@ -4,11 +4,6 @@
     <h1>Статьи</h1>
 @endsection
 @section('articleCategories')
-    <?php
-    Route::get('/about', function () {
-        return view('about', ['ourTeam' => Controllers\PageController::getAboutPage()]);
-    });
-    ?>
 @endsection
 @section('content')
     @foreach ($articles as $article)
