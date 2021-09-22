@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('header')
-    <h1>Статьи</h1>
+    <h1>Rating</h1>
 @endsection
 @section('content')
     <div class="item">

@@ -12,6 +12,11 @@
 <body>
 <div class="container mt-4">
     <h1>@yield('header')</h1>
+    <div class="navigation">
+        <ul>
+            @yield('navigation')
+        </ul>
+    </div>
     <div class="main">
         <div class="main__inner">
             @yield('content')

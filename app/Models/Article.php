@@ -16,15 +16,12 @@ class Article extends Model
     private $state;
 
 
-    /**
-     * Возвращает только опубликованные элементы
-     * @return Article[]|Collection
-     */
     public function getPublishedData()
     {
         $data = self::all();
-        return $data->filter(function ($value) {
+        $data->filter(function ($value) {
             return $value['state'] == 'published';
         });
+        return $data;
     }
 }

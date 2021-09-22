@@ -16,6 +16,6 @@ class ArticleCategoryController extends Controller
 
         // Статьи передаются в шаблон
         // compact('articles') => [ 'articles' => $articles ]
-        return view('article.index', compact('articles'));
+        return view('article.show', compact('articles'));
     }
 }

@@ -10,7 +10,10 @@ class ArticleController extends Controller
     //
     public function index()
     {
-        return Article::paginate();
+        $article = new Article();
+        $articles = $article->getPublishedData();
+
+        return view('article.index', compact('articles'));
 
         // Статьи передаются в шаблон
         // compact('articles') => [ 'articles' => $articles ]
@@ -19,8 +22,7 @@ class ArticleController extends Controller
 
     public function show($id)
     {
-        ddd('123');
         $article = Article::findOrFail($id);
-        return view('article.show', compact('article'));
+        return view('article.show-single', compact('article'));
     }
 }
