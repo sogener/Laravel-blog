@@ -8,6 +8,11 @@
     <li><a href="/">Home</a></li>
 @endsection
 @section('content')
+    {{ Form::open(['url' => route('articles.index'), 'method' => 'GET']) }}
+    {{ Form::label('Название статьи') }}
+    {{ Form::text('q') }}
+    {{ Form::submit('Найти') }}
+    {{ Form::close() }}
     @if(!$articles->isEmpty())
     <ol>
         @foreach ($articles as $article)

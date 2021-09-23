@@ -8,16 +8,22 @@ use Illuminate\Http\Request;
 class ArticleController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
         $article = new Article();
+
+        if ($request->input()) {
+            $validated = $request->validate([
+                'q' => 'required|max:255',
+            ]);
+            $q = $validated['q'];
+            $articles = Article::where('name', 'like', "%{$q}%")->get();
+
+            return view('article.index', compact('articles'));
+        }
+
         $articles = $article->getPublishedData();
-
         return view('article.index', compact('articles'));
-
-        // Статьи передаются в шаблон
-        // compact('articles') => [ 'articles' => $articles ]
-//        return view('article.index', compact('articles'));
     }
 
     public function show($id)

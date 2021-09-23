@@ -18,10 +18,15 @@ use \App\Http\Controllers as Controllers;
 Route::get('/', function () {
     return view('welcome');
 });
+// about
 Route::get('/about', function () {
     return view('about', ['ourTeam' => Controllers\PageController::getAboutPage()]);
 });
+
+// rating
 Route::get('/rating', [Controllers\RatingController::class, 'index']);
+
+// articles
 Route::get('articles', [Controllers\ArticleController::class, 'index'])
     ->name('articles.index');
 Route::get('articles_categories', [Controllers\ArticleCategoryController::class, 'index'])
