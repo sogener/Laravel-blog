@@ -18,6 +18,9 @@
         </ul>
     </div>
     <div class="main">
+        <div class="main__errors">
+            @yield('errors')
+        </div>
         <div class="main__inner">
             @yield('content')
         </div>

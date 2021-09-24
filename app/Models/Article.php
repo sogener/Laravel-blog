@@ -11,6 +11,11 @@ class Article extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     * @var string[]
+     */
+    protected $fillable = ['name', 'body'];
+    /**
      * @var mixed
      */
     private $state;
