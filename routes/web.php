@@ -31,6 +31,9 @@ Route::get('articles', [Controllers\ArticleController::class, 'index'])
     ->name('articles.index');
 Route::get('articles_categories', [Controllers\ArticleCategoryController::class, 'index'])
     ->name('articles.categories');
+Route::get('articles_categories/{id}', [Controllers\ArticleCategoryController::class, 'show'])
+    ->name('articles.categories.show');
+//    ->where('id', '[0-9]+');
 Route::get('articles/create', [Controllers\ArticleController::class, 'create'])
     ->name('articles.create');
 Route::post('articles', [Controllers\ArticleController::class, 'store'])

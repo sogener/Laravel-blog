@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use Illuminate\Database\Eloquent\Model;
 use App\Models\ArticleCategory;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,10 @@ class ArticleCategoryController extends Controller
         $oArticleCategory = new ArticleCategory();
         $articles = $oArticleCategory->getData();
 
-        // Статьи передаются в шаблон
-        // compact('articles') => [ 'articles' => $articles ]
-        return view('article.show', compact('articles'));
+        return view('articlesCategory.show', compact('articles'));
+    }
+    public function show($id){
+        $articles = ArticleCategory::find($id)->articles;
+        return view('articlesCategory.show-single', compact('articles'));
     }
 }

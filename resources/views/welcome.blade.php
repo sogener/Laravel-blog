@@ -4,6 +4,7 @@
 @endsection
 @section('navigation')
     <li><a href="/articles">Articles</a></li>
+    <li><a href="/articles_categories">Categories</a></li>
 @endsection
 @section('content')
 @endsection

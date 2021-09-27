@@ -13,4 +13,11 @@ class ArticleCategory extends Model
     public function getData() {
         return DB::table('article_categories')->paginate(10);
     }
+
+    //    Получить статьи для одной категории
+    public function articles(){
+//        todo: В параметр передается category_id, вытащить все элементы с этим category_id
+        return $this->hasMany('App\Models\Article', 'category_id');
+    }
+
 }
