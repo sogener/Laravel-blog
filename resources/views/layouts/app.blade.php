@@ -25,6 +25,9 @@
             <div class="main__inner">
                 @yield('content')
             </div>
+            <div class="main__comments">
+                @yield('comments')
+            </div>
         </div>
     </div>
 </div>

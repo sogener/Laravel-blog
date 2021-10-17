@@ -23,7 +23,7 @@
                     <div>{{Str::limit($article->body, 200)}}</div>
                     <div class="content__actions">
                         <div><a href="/articles/{{$article->id}}/edit">Редактировать статью</a></div>
-                        <a href="/articles/{{$article->id}}/delete" data-confirm="Вы уверены?" data-method="delete" rel="nofollow">Удалить статью</a>
+                        <a href="/articles/{{$article->id}}" data-confirm="Вы уверены?" data-method="delete" rel="nofollow">Удалить статью</a>
                     </div>
                 </div>
             </div>

@@ -27,8 +27,10 @@ Route::get('/about', function () {
 Route::get('/rating', [Controllers\RatingController::class, 'index']);
 
 // articles
-Route::get('articles', [Controllers\ArticleController::class, 'index'])
-    ->name('articles.index');
+Route::resource('articles', Controllers\ArticleController::class)->shallow();
+Route::resource('articles.comments', Controllers\ArticleCommentsController::class);
+
+// articles_categories
 Route::get('articles_categories', [Controllers\ArticleCategoryController::class, 'index'])
     ->name('articles.categories');
 Route::get('articles_categories/{id}', [Controllers\ArticleCategoryController::class, 'show'])
@@ -40,18 +42,3 @@ Route::get('articles_categories/{id}/edit', [Controllers\ArticleCategoryControll
     ->name('articles.edit');
 Route::post('articles_categories/{id}/edit', [Controllers\ArticleController::class, 'update'])
     ->name('articles_categories.update');
-
-Route::get('articles/{id}', [Controllers\ArticleController::class, 'show'])
-    ->name('articles.show')
-    ->where('id', '[0-9]+');
-// method path\post
-Route::post('articles/{id}/edit', [Controllers\ArticleController::class, 'update'])
-    ->name('articles.update');
-Route::get('articles/{id}/edit', [Controllers\ArticleController::class, 'edit'])
-    ->name('articles.edit');
-Route::get('articles/create', [Controllers\ArticleController::class, 'create'])
-    ->name('articles.create');
-Route::post('articles', [Controllers\ArticleController::class, 'store'])
-    ->name('articles.store');
-Route::delete('articles/{id}/delete', [Controllers\ArticleController::class, 'destroy'])
-    ->name('articles.destroy');
