@@ -21,8 +21,10 @@
         <div class="main__errors">
             @yield('errors')
         </div>
-        <div class="main__inner">
-            @yield('content')
+        <div class="content-center">
+            <div class="main__inner">
+                @yield('content')
+            </div>
         </div>
     </div>
 </div>

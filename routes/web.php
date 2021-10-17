@@ -32,12 +32,19 @@ Route::get('articles', [Controllers\ArticleController::class, 'index'])
 Route::get('articles_categories', [Controllers\ArticleCategoryController::class, 'index'])
     ->name('articles.categories');
 Route::get('articles_categories/{id}', [Controllers\ArticleCategoryController::class, 'show'])
-    ->name('articles.categories.show');
-//    ->where('id', '[0-9]+');
+    ->name('articles.categories.show')
+    ->where('id', '[0-9]+');
+Route::get('articles/{id}', [Controllers\ArticleController::class, 'show'])
+    ->name('articles.show')
+    ->where('id', '[0-9]+');
+// method path\post
+Route::post('articles/{id}/edit', [Controllers\ArticleController::class, 'update'])
+    ->name('articles.update');
+Route::get('articles/{id}/edit', [Controllers\ArticleController::class, 'edit'])
+    ->name('articles.edit');
 Route::get('articles/create', [Controllers\ArticleController::class, 'create'])
     ->name('articles.create');
 Route::post('articles', [Controllers\ArticleController::class, 'store'])
     ->name('articles.store');
-Route::get('articles/{id}', [Controllers\ArticleController::class, 'show'])
-    ->name('articles.show')
-    ->where('id', '[0-9]+');
+Route::delete('articles/{id}', [Controllers\ArticleController::class, 'destroy'])
+    ->name('articles.destroy');
