@@ -21,7 +21,10 @@
                 <li><h2><a href="/articles/{{$article->id}}"> {{$article->name}} </a></h2></li>
                 <div class="articles__content">
                     <div>{{Str::limit($article->body, 200)}}</div>
-                    <div><a href="/articles/<?=$article->id?>/edit">Редактировать статью</a></div>
+                    <div class="content__actions">
+                        <div><a href="/articles/{{$article->id}}/edit">Редактировать статью</a></div>
+                        <a href="/articles/{{$article->id}}/delete" data-confirm="Вы уверены?" data-method="delete" rel="nofollow">Удалить статью</a>
+                    </div>
                 </div>
             </div>
             {{-- Str::limit – функция-хелпер, которая обрезает текст до указанной длины --}}

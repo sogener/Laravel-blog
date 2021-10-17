@@ -13,5 +13,9 @@
         {{-- Str::limit – функция-хелпер, которая обрезает текст до указанной длины --}}
         {{-- Используется для очень длинных текстов, которые нужно сократить --}}
         <div>{{Str::limit($article->description, 200)}}</div>
+        <div class="content__actions">
+            <div><a href="/articles_categories/{{$article->id}}/edit">Редактировать категорию</a></div>
+            <a href="/articles_categories/{{$article->id}}/delete" data-confirm="Вы уверены?" data-method="delete" rel="nofollow">Удалить категорию</a>
+        </div>
     @endforeach
 @endsection

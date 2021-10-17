@@ -34,6 +34,13 @@ Route::get('articles_categories', [Controllers\ArticleCategoryController::class,
 Route::get('articles_categories/{id}', [Controllers\ArticleCategoryController::class, 'show'])
     ->name('articles.categories.show')
     ->where('id', '[0-9]+');
+Route::delete('articles_categories/{id}/delete', [Controllers\ArticleCategoryController::class, 'destroy'])
+    ->name('articles.destroy');
+Route::get('articles_categories/{id}/edit', [Controllers\ArticleCategoryController::class, 'edit'])
+    ->name('articles.edit');
+Route::post('articles_categories/{id}/edit', [Controllers\ArticleController::class, 'update'])
+    ->name('articles_categories.update');
+
 Route::get('articles/{id}', [Controllers\ArticleController::class, 'show'])
     ->name('articles.show')
     ->where('id', '[0-9]+');
@@ -46,5 +53,5 @@ Route::get('articles/create', [Controllers\ArticleController::class, 'create'])
     ->name('articles.create');
 Route::post('articles', [Controllers\ArticleController::class, 'store'])
     ->name('articles.store');
-Route::delete('articles/{id}', [Controllers\ArticleController::class, 'destroy'])
+Route::delete('articles/{id}/delete', [Controllers\ArticleController::class, 'destroy'])
     ->name('articles.destroy');
